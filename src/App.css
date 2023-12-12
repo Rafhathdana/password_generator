@@ -37,8 +37,9 @@ section {
   border-radius: 6px;
   overflow: hidden;
 }
+
 .result #result {
-  width: 85%;
+  width: 65%; /* Adjusted width to make space for both buttons */
   height: 100%;
   border: none;
   outline: none;
@@ -46,14 +47,22 @@ section {
   font-size: 20px;
   padding: 10px;
 }
-.result .clipboard {
-  width: 20%;
+
+.result .action-buttons {
+  width: 35%; /* Adjusted width to make space for both buttons */
   height: 100%;
-  gap: 6px;
   position: absolute;
   right: 0;
-  top: 50%;
-  transform: translateY(-50%);
+  top: 0;
+  display: flex;
+  align-items: center;
+}
+
+.result .clipboard,
+.result .saveto {
+  flex: 1;
+  gap: 6px;
+  height: 100%;
   font-size: 25px;
   cursor: pointer;
   background-color: rgb(6, 22, 68);
@@ -61,4 +70,23 @@ section {
   display: flex;
   align-items: center;
   justify-content: center;
+}
+.result .clipboard:hover,
+.result .saveto:hover {
+  border: 2px solid white;
+}
+.flex {
+  display: flex;
+}
+.column {
+  flex-direction: column;
+}
+@media only screen and (max-width: 1100px) {
+  .flex {
+    display: flex;
+    flex-direction: column;
+  }
+}
+.mt {
+  margin-top: 50px;
 }
