@@ -1,4 +1,3 @@
-import React from "react";
 import { FaClipboard, FaTrash } from "react-icons/fa";
 import "./Passwords.css";
 import toast from "react-hot-toast";

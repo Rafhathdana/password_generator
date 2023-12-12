@@ -1,4 +1,4 @@
-import React, { useState, ChangeEvent, FormEvent, useEffect } from "react";
+import { useState, ChangeEvent, FormEvent, useEffect } from "react";
 import { MdOutlineClear } from "react-icons/md";
 import "./Form.css";
 import toast from "react-hot-toast";
@@ -10,7 +10,9 @@ interface FormValues {
   number: boolean;
   symbol: boolean;
   length: number;
+  [key: string]: boolean | number; // Index signature
 }
+
 interface FormProps {
   setResult: React.Dispatch<React.SetStateAction<string>>;
 }
@@ -108,7 +110,7 @@ export const Form: React.FC<FormProps> = ({ setResult }) => {
                 id={data.name}
                 name={data.name}
                 onChange={() => handleCheckboxChange(data.name)}
-                checked={values[data.name]}
+                checked={Boolean(values[data.name])}
               />
             ) : (
               <input
@@ -118,7 +120,7 @@ export const Form: React.FC<FormProps> = ({ setResult }) => {
                 max={data.max}
                 name={data.name}
                 onChange={handleNumberChange}
-                value={values[data.name]}
+                value={values[data.name].toString()}
               />
             )}
           </div>
