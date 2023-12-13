@@ -56,6 +56,13 @@ export default function Passwords() {
             </div>
           </div>
         ))}
+        {storedPass.length == 0 ? (
+          <div className="stored">
+            <div className="stored-data">No Password Stored</div>
+          </div>
+        ) : (
+          ""
+        )}
       </div>
     </>
   );
